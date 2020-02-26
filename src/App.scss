@@ -11,6 +11,7 @@ $butternut: #ffda79;
 $grey-porcelain: #84817a;
 $devil-blue: #227093;
 $ships-officer: #2C3A47;
+$ship-officer: #89a7b4;
 
 * {
   font-family: $main-font;
@@ -45,7 +46,7 @@ nav li {
   float: right;
   margin: 12px;
   // display: block;
-  color: white;
+  color: $dusty-rose;
   text-align: center;
   text-decoration: none;
   font-size: 1.4rem;
@@ -53,17 +54,20 @@ nav li {
 
 .nav-btn {
   padding: 6px;
-  color: #999;
+  // color: #999;
+  color: $swan-white;
   text-shadow: 1px 1px 1px #333;
 }
 
 .logout-btn, .login-btn, .signup-btn {
-  border: 1px solid #666;
+  // border: 1px solid #666;
   padding: 6px 10px;
-  background-color: #888;
+  background-color: $swan-white;
+  border-radius: 5px;
 
   &:hover {
-    background-color: rgba(161, 142, 142, 0.7);
+    background-color: $dusty-rose;
+    color: $swan-white;
   }
 }
 
@@ -77,7 +81,7 @@ form {
 
 li.logo {
   float: left;
-  color: rgb(219, 213, 213);
+  color: $swan-white;
   padding: 6px 6px;
   font-size: 2.5rem;
   // text-shadow: 1px 1px 1px rgb(29, 29, 29);

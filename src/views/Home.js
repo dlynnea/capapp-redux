@@ -8,14 +8,16 @@ import {Link} from "react-router-dom";
 import qs from 'query-string';
 import Loader from "../components/Loader";
 import Nav from "../components/Nav"
+import LoginForm from "../components/LoginForm"
+import SignupForm from "../components/SignupForm"
 
 class Home extends Component{
 
-    constructor(props){
-        super(props);
-        this.state = {
-           page: qs.parse(this.props.location.search).page || 1,
-        }
+    state = {
+        logged_in: localStorage.getItem('token') ? true : false,
+        username: '',
+        displayed_form: '',
+        page: qs.parse(this.props.location.search).page || 1,
     }
 
     componentWillMount() {
@@ -39,12 +41,80 @@ class Home extends Component{
         fetchArticles(this.state.page)
     }
 
+    displayForm = form => {
+        this.setState({displayed_form: form})
+      }
+
+    handleLogin = (event, data) => {
+        event.preventDefault();
+        fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then((result) => {
+            localStorage.setItem('token', result.token);
+            console.log("json", result)
+            this.setState({
+            logged_in: true,
+            displayed_form: '',
+            username: result.username
+            })
+        })
+    }
+
+    handleSignup = (event, data) => {
+        event.preventDefault();
+        fetch('http://localhost:3000/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(json => {
+          localStorage.setItem('token', json.token);
+          this.setState({
+            logged_in: true,
+            displayed_form: '',
+            username: json.username
+          })
+        })
+      }
+
+      handleLogout = () => {
+        localStorage.removeItem('token');
+        this.setState({ logged_in: false, username: '' })
+      }
+
     render() {
+        let form;
+        switch (this.state.displayed_form) {
+        case 'login':
+            form = <LoginForm handleLogin={this.handleLogin} />
+            break;
+        case 'signup':
+            form = <SignupForm handleSignup={this.handleSignup} />
+            break;
+        default:
+            form = null;
+        }
+
         return <div className='home'>
             <div className='blog-header'>
-                <h1 className='text-center'><Nav /></h1>
-                {/* <Nav /> */}
+                <h1 className='text-center'>
+                    <Nav 
+                    logged_in={this.state.logged_in}
+                    displayForm={this.displayForm}
+                    handleLogout={this.handleLogout}
+                    />
+                </h1>
             </div>
+            {form}
             {this.props.pending && <div className='row'>
                 <div className='col-md-2 mx-auto my-5 p-5'>
                     <div className='text-center'>
@@ -99,7 +169,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => bindActionCreators({
     fetchArticles
 },dispatch);
-
 
 const HomeView = connect(mapStateToProps, mapDispatchToProps)(Home);
 

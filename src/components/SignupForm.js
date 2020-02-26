@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 class SignupForm extends Component {
+    
     state = {
         name: '',
         username: '',
