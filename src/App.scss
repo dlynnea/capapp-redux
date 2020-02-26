@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+$main-font: 'Raleway', sans-serif;
+$dusty-rose: #c28285;
+$background-color: rgb(228, 226, 226);
+$liberty: #474787;
+$jacksons-purple: #40407a;
+$swan-white: #f7f1e3;
+$palmsprings: #218c74;
+$butternut: #ffda79;
+$grey-porcelain: #84817a;
+$devil-blue: #227093;
+$ships-officer: #2C3A47;
+
+* {
+  font-family: $main-font;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $swan-white;
+}
+
+input {
+  display: block;
+  margin: 5px 0 5px;
+  width: 150px;
+}
+
+nav {
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  // background-image: linear-gradient(to bottom right, #705253, #b88b8d);
+  background-image: linear-gradient(to bottom right, $ships-officer, $grey-porcelain);
+  // background-image: linear-gradient(to bottom right, $palmsprings, $grey-porcelain);
+}
+
+nav li {
+  float: right;
+  margin: 8px;
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.nav-btn {
+  padding: 6px;
+  color: #999;
+  text-shadow: 1px 1px 1px #333;
+}
+
+.logout-btn, .login-btn, .signup-btn {
+  border: 1px solid #666;
+  padding: 4px 8px;
+  background-color: #888;
+
+  &:hover {
+    background-color: rgba(161, 142, 142, 0.7);
+  }
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 800px;
+}
+
+li.logo {
+  float: left;
+  color: rgb(201, 200, 200);
+  padding: 6px 6px;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 1px rgb(29, 29, 29);
+}
+
+.article-card{
+  box-shadow: 10px 10px 20px 1px grey;
+  min-height: 100%;
+}
+.article-card a{
+  color: #000;
+  text-decoration: none;
+}
+
+.card-content{
+  padding: 20px;
+  padding-bottom: 50px;
+  margin-bottom: 20px;
+}
+
+.card-content .title{
+  margin: 15px  0;
+  margin-bottom: 20px;
+}
+
+.blog-header{
+  background: $dusty-rose;
+  color: $swan-white;
+  padding: 10px 0;
+  padding-top: 10px;
+}
+
+.blog-header h1{
+  font-size: 3.1em;
+  font-weight: bold;
+}
+
+.blog-body{
+  margin-top: 100px;
+}
+
+.blog-pagination{
+  padding: 100px;
+}
+
+.blog-pagination .btn {
+  background: $dusty-rose;
+  padding: 15px 50px;
+  display: block;
+  width: 500px;
+  color: #ffffff;
+  border-radius: 28px;
+}
+
+.article .container{
+  margin-top: 100px;
+  width: 70%;
+}
+
+footer{
+  background: $dusty-rose;
+  padding: 50px;
+  color: #fff;
+}
+
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 6px;
+  box-sizing: border-box;
+  border: 26px solid #1888a5;
+  border-color: #1888a5 transparent #1888a5 transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+
+@keyframes lds-hourglass {
+  0% {
+      transform: rotate(0);
+      animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+      transform: rotate(900deg);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+      transform: rotate(1800deg);
+  }
+}
