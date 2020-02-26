@@ -7,6 +7,7 @@ import {bindActionCreators} from "redux";
 import {Link} from "react-router-dom";
 import qs from 'query-string';
 import Loader from "../components/Loader";
+import Nav from "../components/Nav"
 
 class Home extends Component{
 
@@ -41,7 +42,8 @@ class Home extends Component{
     render() {
         return <div className='home'>
             <div className='blog-header'>
-                <h1 className='text-center'>Cluster News</h1>
+                <h1 className='text-center'><Nav /></h1>
+                {/* <Nav /> */}
             </div>
             {this.props.pending && <div className='row'>
                 <div className='col-md-2 mx-auto my-5 p-5'>

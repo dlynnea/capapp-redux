@@ -37,18 +37,18 @@ nav ul {
   padding: 0;
   overflow: hidden;
   // background-image: linear-gradient(to bottom right, #705253, #b88b8d);
-  background-image: linear-gradient(to bottom right, $ships-officer, $grey-porcelain);
+  // background-image: linear-gradient(to bottom right, $ships-officer, $grey-porcelain);
   // background-image: linear-gradient(to bottom right, $palmsprings, $grey-porcelain);
 }
 
 nav li {
   float: right;
-  margin: 8px;
-  display: block;
+  margin: 12px;
+  // display: block;
   color: white;
   text-align: center;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 }
 
 .nav-btn {
@@ -59,7 +59,7 @@ nav li {
 
 .logout-btn, .login-btn, .signup-btn {
   border: 1px solid #666;
-  padding: 4px 8px;
+  padding: 6px 10px;
   background-color: #888;
 
   &:hover {
@@ -77,10 +77,10 @@ form {
 
 li.logo {
   float: left;
-  color: rgb(201, 200, 200);
+  color: rgb(219, 213, 213);
   padding: 6px 6px;
-  font-size: 1.5rem;
-  text-shadow: 1px 1px 1px rgb(29, 29, 29);
+  font-size: 2.5rem;
+  // text-shadow: 1px 1px 1px rgb(29, 29, 29);
 }
 
 .article-card{
