@@ -7,9 +7,11 @@ import {bindActionCreators} from "redux";
 import {Link} from "react-router-dom";
 import qs from 'query-string';
 import Loader from "../components/Loader";
-import Nav from "../components/Nav"
-import LoginForm from "../components/LoginForm"
-import SignupForm from "../components/SignupForm"
+import Nav from "../components/Nav";
+import LoginForm from "../components/LoginForm";
+import SignupForm from "../components/SignupForm";
+// import Sidebar from "react-sidebar";
+import Sidebar from "../sidebar/Sidebar"
 
 class Home extends Component{
 
@@ -34,6 +36,10 @@ class Home extends Component{
                 this.getArticles();
             })
         }
+    }
+
+    onSetSideBarOpen(open) {
+        this.setState({ sidebarOpen: open})
     }
 
     getArticles = () => {
@@ -112,6 +118,15 @@ class Home extends Component{
                     displayForm={this.displayForm}
                     handleLogout={this.handleLogout}
                     />
+                    <Sidebar />
+                    {/* <Sidebar
+                    sidebar={<b>Sidebar content</b>}
+                    open={this.state.sidebarOpen}
+                    onSetOpen={this.onSetSideBarOpen}
+                    styles={{ sidebar: { background: "white" } }}
+                    >
+                        <button onClick={() => this.onSetSideBarOpen(true)}>OPEN</button>
+                    </Sidebar> */}
                 </h1>
             </div>
             {form}

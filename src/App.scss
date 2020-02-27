@@ -1,6 +1,14 @@
+// @import 'menu';
+
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Spartan&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Merriweather|Raleway&display=swap');
+  
+$header-nav-height: 64px;
+$sidebar-left-width: 19rem;
+$text-color-dark: #111111;
+$avatar-diameter: 48px;
+$avatar-margin: 10px;
 
 $main-font: 'Spartan', sans-serif;
 $dusty-rose: #c28285;
@@ -26,9 +34,9 @@ $light-color: #77a39a;
 
 body {
   background-color: $off-white;
-  background: url('shape.jpg') no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  // background: url('shape.jpg') no-repeat;
+  // background-size: cover;
+  // background-attachment: fixed;
   margin-top: 10rem;
 }
 
@@ -127,7 +135,12 @@ li.logo {
   box-shadow: 10px 10px 20px 1px grey;
   min-height: 100%;
   background-color: rgba(212, 198, 198, 0.9);
+  margin: 0 10px;
+  margin-left: 320px;
+  width: 800px;
+  // border: 1px solid black;
 }
+
 .article-card a{
   color: #000;
   text-decoration: none;
@@ -147,12 +160,18 @@ li.logo {
 .blog-header{
   background: $light-color;
   color: $swan-white;
-  padding: 10px 0;
-  padding-top: 10px;
+  padding: 20px 0;
+  height: 400px;
+  // padding-top: 80px;
+  // padding-bottom: 80px;
+  margin-bottom: 30px;
   position: fixed;
   width: 100%;
   top: 0;
   opacity: 0.9;
+  background: url('shape.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .blog-header h1{
@@ -221,3 +240,4 @@ footer{
       transform: rotate(1800deg);
   }
 }
+

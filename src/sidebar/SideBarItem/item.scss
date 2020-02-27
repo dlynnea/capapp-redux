@@ -1,0 +1,33 @@
+@import '../../App.scss';
+
+.sidebar-item {
+
+    span {
+        color: $dark-color;
+        text-decoration: none;
+        font-size: 2rem;
+    }
+    background: $swan-white;
+    span {
+      i.icon {
+        margin-right: 20px;
+        color: #888888;
+      }
+    }
+  
+    &.highlight-item {
+      span {
+        font-weight: 500;
+      }
+  
+    //   i.icon {
+    //     color: $palmsprings;
+    //   }
+    }
+  }
+  
+  
+  .sidebar-item-alignment-container {
+    display: flex;
+    align-items: center;
+  }
