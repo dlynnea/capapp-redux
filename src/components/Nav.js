@@ -7,8 +7,8 @@ function Nav(props) {
             <ul>
                 <li className="login-btn" onClick={() => props.displayForm('login')}>login</li>
                 <li className="signup-btn" onClick={() => props.displayForm('signup')}>signup</li>
-                <li className="nav-btn"><i class="fa fa-bookmark"></i></li>
-                <li className="nav-btn"><i class="fa fa-glasses"></i></li>
+                {/* <li className="nav-btn"><i class="fa fa-bookmark"></i></li>
+                <li className="nav-btn"><i class="fa fa-glasses"></i></li> */}
                 <li className="logo">cluster <i class="fa fa-pushed"></i></li>
             </ul>
         </nav>
@@ -18,9 +18,9 @@ function Nav(props) {
         <nav>
             <ul>
                 <li className="logout-btn" onClick={props.handleLogout}>logout</li>
-                <li className="nav-btn"><i class="fa fa-bookmark"></i></li>
-                <li className="nav-btn"><i class="fa fa-glasses"></i></li>
-                <li className="logo">cluster <i class="fab fa-pushed"></i></li>
+                {/* <li className="nav-btn"><i class="fa fa-bookmark"></i></li>
+                <li className="nav-btn"><i class="fa fa-glasses"></i></li> */}
+                <li className="logo">cluster <i class="fa fa-pushed"></i></li>
             </ul>
         </nav>
     )

@@ -134,7 +134,7 @@ class Home extends Component{
                 <div className='col-md-2 mx-auto my-5 p-5'>
                     <div className='text-center'>
                         <Loader/>
-                        <p>Please wait..</p>
+                        <p className="please-wait">Please wait..</p>
                     </div>
                 </div>
             </div> }

@@ -1,13 +1,16 @@
 @import '../../App.scss';
 
 .sidebar-item {
-
     span {
         color: $dark-color;
         text-decoration: none;
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-top: 5px;
+        margin-left: 22px;
+        font-weight: 500;
     }
-    background: $swan-white;
+    background-color: $light-color;
+    padding: 4px;
     span {
       i.icon {
         margin-right: 20px;
@@ -20,14 +23,17 @@
         font-weight: 500;
       }
   
-    //   i.icon {
-    //     color: $palmsprings;
-    //   }
+      i.icon {
+        color: $palmsprings;
+      }
     }
   }
-  
   
   .sidebar-item-alignment-container {
     display: flex;
     align-items: center;
+  }
+
+  div.sidebar-item-alignment-container > span {
+    text-decoration: none;
   }

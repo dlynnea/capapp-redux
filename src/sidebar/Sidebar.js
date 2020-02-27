@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
-// import { slide as Menu } from "react-burger-menu"
 import SideBarItem from './SideBarItem/SideBarItem';
 import {Menu, Divider} from 'semantic-ui-react';
 import './_menu.scss';
 import {SideBarHeader} from './header/SideBarHeader';
-// import {Subscriptions} from './Subscriptions/Subscriptions';
 // import {SideBarFooter} from './SideBarFooter/SideBarFooter';
 
 export default class SideBar extends Component {
@@ -12,19 +10,20 @@ export default class SideBar extends Component {
   render() {
     return (
       <Menu borderless vertical stackable fixed='left' className='side-nav'>
-        <SideBarItem path='/' label='Home'/>
-        <SideBarItem path='/' label='Profile'/>
+        <SideBarItem path='/' label='home'/>
+        <SideBarItem path='/' label='profile'/>
         <Divider/>
-        <SideBarHeader title='Library'/>
-        <SideBarItem label='Space'/>
-        <SideBarItem label='Tech'/>
-        <SideBarItem label='Wellness'/>
+        <SideBarHeader title='Feeds'icon='fire'/>
+        <SideBarItem label='space'/>
+        <SideBarItem label='tech'/>
+        <SideBarItem label='wellness'/>
+        <SideBarItem label='another'/>
+        <SideBarItem label='something'/>
         <Divider/>
-        {/* <Subscriptions/> */}
-        <SideBarHeader title='More from Cluster'/>
-        <SideBarItem label='Podcasts'/>
+        <SideBarHeader title='Other'/>
+        <SideBarItem label='podcasts'/>
         <Divider/>
-        <SideBarItem label='Weather'/>
+        <SideBarItem label='weather'/>
         <Divider/>
         {/* <SideBarFooter/> */}
       </Menu>
