@@ -20,7 +20,7 @@ class LoginForm extends Component {
     render() {
         return(
             <form onSubmit={event => this.props.handleLogin(event, this.state)}>
-                <h4>Log In</h4>
+                <h4>LOG IN</h4>
                 <input
                 type="text"
                 name="username"
@@ -35,7 +35,7 @@ class LoginForm extends Component {
                 value={this.state.password}
                 onChange={this.handleChange}
                 />
-                <input type="submit" />
+                <input className="input-btn" type="submit" />
             </form>
         )
     }

@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Spartan&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Raleway&display=swap');
 
-$main-font: 'Raleway', sans-serif;
+$main-font: 'Spartan', sans-serif;
 $dusty-rose: #c28285;
 $background-color: rgb(228, 226, 226);
 $liberty: #474787;
 $jacksons-purple: #40407a;
 $swan-white: #f7f1e3;
+$dark-white: #dcd3bd;
+$off-white: #f5f3ee;
 $palmsprings: #218c74;
 $butternut: #ffda79;
 $grey-porcelain: #84817a;
 $devil-blue: #227093;
 $ships-officer: #2C3A47;
 $ship-officer: #89a7b4;
+$dark-color: rgb(53, 50, 50);
+$light-color: #77a39a;
 
 * {
   font-family: $main-font;
@@ -19,7 +25,11 @@ $ship-officer: #89a7b4;
 }
 
 body {
-  background-color: $swan-white;
+  background-color: $off-white;
+  background: url('shape.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-top: 10rem;
 }
 
 input {
@@ -34,7 +44,7 @@ nav {
 
 nav ul {
   list-style-type: none;
-  margin: 0;
+  margin: 10px;
   padding: 0;
   overflow: hidden;
   // background-image: linear-gradient(to bottom right, #705253, #b88b8d);
@@ -44,16 +54,25 @@ nav ul {
 
 nav li {
   float: right;
-  margin: 12px;
+  margin: 6px;
+  // margin-right: 20px;
+  width: 90px;
+  height: 34px;
   // display: block;
-  color: $dusty-rose;
+  color: $dark-color;
   text-align: center;
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
+}
+
+form h4 {
+  color: $off-white;
 }
 
 .nav-btn {
   padding: 6px;
+  margin-right: -18px;
+  font-size: 1.5rem;
   // color: #999;
   color: $swan-white;
   text-shadow: 1px 1px 1px #333;
@@ -66,7 +85,7 @@ nav li {
   border-radius: 5px;
 
   &:hover {
-    background-color: $dusty-rose;
+    background-color: $ships-officer;
     color: $swan-white;
   }
 }
@@ -76,20 +95,38 @@ form {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 800px;
+  margin: 200px;
+  padding: 80px;
+  width: 600px;
+  border: 1px solid black;
+  box-shadow: 10px 10px 20px 1px grey;
+  background-color: $ships-officer;
+  border-radius: 10px;
+}
+
+form input {
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input-btn:hover {
+  background-color: $light-color;
 }
 
 li.logo {
   float: left;
-  color: $swan-white;
+  color: $dark-color;
   padding: 6px 6px;
-  font-size: 2.5rem;
+  font-size: 2rem;
   // text-shadow: 1px 1px 1px rgb(29, 29, 29);
 }
 
 .article-card{
   box-shadow: 10px 10px 20px 1px grey;
   min-height: 100%;
+  background-color: rgba(212, 198, 198, 0.9);
 }
 .article-card a{
   color: #000;
@@ -108,10 +145,14 @@ li.logo {
 }
 
 .blog-header{
-  background: $dusty-rose;
+  background: $light-color;
   color: $swan-white;
   padding: 10px 0;
   padding-top: 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  opacity: 0.9;
 }
 
 .blog-header h1{
@@ -142,7 +183,7 @@ li.logo {
 }
 
 footer{
-  background: $dusty-rose;
+  background: $light-color;
   padding: 50px;
   color: #fff;
 }

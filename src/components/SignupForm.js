@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 class SignupForm extends Component {
-    
+
     state = {
         name: '',
         username: '',
@@ -22,7 +22,7 @@ class SignupForm extends Component {
     render() {
         return(
             <form onSubmit={event => this.props.handleSignup(event, this.state)}>
-            <h4>Sign Up</h4>
+            <h4>SIGN UP</h4>
             <input
             type="text"
             name="name"
@@ -44,7 +44,7 @@ class SignupForm extends Component {
             value={this.state.password}
             onChange={this.handleChange}
             />
-            <input type="submit" />
+            <input className="input-btn" type="submit" />
         </form>
         )
     }
