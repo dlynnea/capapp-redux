@@ -4,6 +4,8 @@ $sidebar-hover-color: $matchy;
 .ui.menu.fixed.side-nav {
   background-color: $light-color;
   margin-top: 26vh;
+  position: relative;
+  z-index: -1;
   // overflow-y: auto;
   // padding-bottom: $header-nav-height;
 

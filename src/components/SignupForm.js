@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Link } from "react-router-dom";
 
 class SignupForm extends Component {
 
@@ -45,6 +46,7 @@ class SignupForm extends Component {
             onChange={this.handleChange}
             />
             <input className="input-btn" type="submit" />
+            <p><Link className="login-link" to='/login'>Already have an Account?</Link></p>
         </form>
         )
     }

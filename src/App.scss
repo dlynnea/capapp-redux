@@ -47,8 +47,16 @@ input {
   width: 150px;
 }
 
-nav {
+nav.nav {
+  position: relative;
+  z-index: 1;
   width: 100%;
+  margin-top: -120px;
+}
+
+.register-link p {
+  color: #fff;
+  border: 1px solid white;
 }
 
 nav ul {
@@ -101,6 +109,8 @@ form h4 {
 }
 
 form {
+  position: absolute;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -199,7 +209,7 @@ li.logo {
 }
 
 .article .container{
-  margin-top: 100px;
+  margin-top: 10px;
   width: 70%;
 }
 

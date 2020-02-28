@@ -5,131 +5,118 @@ import fetchArticles from "../actions/fetchArticles";
 import {getArticles, getArticlesPending, getArticlesError } from "../store/reducers";
 import {bindActionCreators} from "redux";
 import {Link} from "react-router-dom";
-import qs from 'query-string';
+// import qs from 'query-string';
 import Loader from "../components/Loader";
-import Nav from "../components/Nav";
-import LoginForm from "../components/LoginForm";
-import SignupForm from "../components/SignupForm";
-// import Sidebar from "react-sidebar";
+// import Nav from "../components/Nav";
+// import LoginForm from "../components/LoginForm";
+// import SignupForm from "../components/SignupForm";
 import Sidebar from "../sidebar/Sidebar"
 
-class Home extends Component{
+class Home extends Component {
 
     state = {
-        logged_in: localStorage.getItem('token') ? true : false,
-        username: '',
-        displayed_form: '',
-        page: qs.parse(this.props.location.search).page || 1,
+        // logged_in: localStorage.getItem('token') ? true : false,
+        // username: '',
+        // displayed_form: '',
+        // page: qs.parse(this.props.location.search).page || 1,
     }
 
     componentWillMount() {
-        this.getArticles();
+        this.getArticles()
     }
 
-    componentDidUpdate (prevProps) {
-        let prevPage =  qs.parse(prevProps.location.search).page;
-        let newPage = qs.parse(this.props.location.search).page;
-        if(prevPage !== newPage){
-            this.setState(() => (
-                {page: newPage }
-            ),()=> {
-                this.getArticles();
-            })
-        }
-    }
-
-    onSetSideBarOpen(open) {
-        this.setState({ sidebarOpen: open})
-    }
+    // componentDidUpdate (prevProps) {
+    //     let prevPage =  qs.parse(prevProps.location.search).page;
+    //     let newPage = qs.parse(this.props.location.search).page;
+    //     if(prevPage !== newPage){
+    //         this.setState(() => (
+    //             {page: newPage }
+    //         ),()=> {
+    //             this.getArticles();
+    //         })
+    //     }
+    // }
 
     getArticles = () => {
         const { fetchArticles } = this.props
         fetchArticles(this.state.page)
     }
 
-    displayForm = form => {
-        this.setState({displayed_form: form})
-      }
+    // displayForm = form => {
+    //     this.setState({displayed_form: form})
+    //   }
 
-    handleLogin = (event, data) => {
-        event.preventDefault();
-        fetch('http://localhost:3000/login', {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then((result) => {
-            localStorage.setItem('token', result.token);
-            console.log("json", result)
-            this.setState({
-            logged_in: true,
-            displayed_form: '',
-            username: result.username
-            })
-        })
-    }
+    // handleLogin = (event, data) => {
+    //     event.preventDefault();
+    //     fetch('http://localhost:3000/login', {
+    //         method: 'POST',
+    //         headers: {
+    //         'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
+    //     .then(response => response.json())
+    //     .then((result) => {
+    //         localStorage.setItem('token', result.token);
+    //         console.log("json", result)
+    //         this.setState({
+    //         logged_in: true,
+    //         displayed_form: '',
+    //         username: result.username
+    //         })
+    //     })
+    // }
 
-    handleSignup = (event, data) => {
-        event.preventDefault();
-        fetch('http://localhost:3000/users', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(json => {
-          localStorage.setItem('token', json.token);
-          this.setState({
-            logged_in: true,
-            displayed_form: '',
-            username: json.username
-          })
-        })
-      }
+    // handleSignup = (event, data) => {
+    //     event.preventDefault();
+    //     fetch('http://localhost:3000/users', {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json'
+    //       },
+    //       body: JSON.stringify(data)
+    //     })
+    //     .then(response => response.json())
+    //     .then(json => {
+    //       localStorage.setItem('token', json.token);
+    //       this.setState({
+    //         logged_in: true,
+    //         displayed_form: '',
+    //         username: json.username
+    //       })
+    //     })
+    //   }
 
-      handleLogout = () => {
-        localStorage.removeItem('token');
-        this.setState({ logged_in: false, username: '' })
-      }
+    //   handleLogout = () => {
+    //     localStorage.removeItem('token');
+    //     this.setState({ logged_in: false, username: '' })
+    //   }
 
     render() {
-        let form;
-        switch (this.state.displayed_form) {
-        case 'login':
-            form = <LoginForm handleLogin={this.handleLogin} />
-            break;
-        case 'signup':
-            form = <SignupForm handleSignup={this.handleSignup} />
-            break;
-        default:
-            form = null;
-        }
+        // let form;
+        // switch (this.state.displayed_form) {
+        // case 'login':
+        //     form = <LoginForm handleLogin={this.handleLogin} />
+        //     break;
+        // case 'signup':
+        //     form = <SignupForm handleSignup={this.handleSignup} />
+        //     break;
+        // default:
+        //     form = null;
+        // }
 
-        return <div className='home'>
-            <div className='blog-header'>
+    return <div className='home'>
+            {/* <div className='blog-header'>
                 <h1 className='text-center'>
                     <Nav 
-                    logged_in={this.state.logged_in}
-                    displayForm={this.displayForm}
+                    // logged_in={this.state.logged_in}
+                    // displayForm={this.displayForm}
                     handleLogout={this.handleLogout}
                     />
-                    <Sidebar />
-                    {/* <Sidebar
-                    sidebar={<b>Sidebar content</b>}
-                    open={this.state.sidebarOpen}
-                    onSetOpen={this.onSetSideBarOpen}
-                    styles={{ sidebar: { background: "white" } }}
-                    >
-                        <button onClick={() => this.onSetSideBarOpen(true)}>OPEN</button>
-                    </Sidebar> */}
                 </h1>
-            </div>
-            {form}
+            </div> */}
+            <Sidebar />
+            {/* {form} */}
             {this.props.pending && <div className='row'>
                 <div className='col-md-2 mx-auto my-5 p-5'>
                     <div className='text-center'>
@@ -141,7 +128,6 @@ class Home extends Component{
             {!this.props.pending && <div className='blog-body'>
                 <div className='container'>
                     <div className='row no-gutters'>
-
                         {this.props.articles && this.props.articles.items.map((article) => (
                             <div className='col-lg-4 p-4' key={article.id}>
                                 <ArticleCard article={article}/>
@@ -161,7 +147,7 @@ class Home extends Component{
                                     {
                                         parseInt(this.props.articles.pagination.total_pages) > parseInt(this.state.page) &&
                                         <Link to={`/?page=${parseInt(this.state.page) + 1}`}
-                                              className='btn ml-5'>Next</Link>}
+                                            className='btn ml-5'>Next</Link>}
                                 </div>
                             }
                         </div>
@@ -171,15 +157,15 @@ class Home extends Component{
             }
         </div>
     }
-}
+}  
 
-const mapStateToProps = (state) => {
-    return{
-        error: getArticlesError(state),
-        pending: getArticlesPending(state),
-        articles: getArticles(state)
+    const mapStateToProps = (state) => {
+        return{
+            error: getArticlesError(state),
+            pending: getArticlesPending(state),
+            articles: getArticles(state)
+        }
     }
-}
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     fetchArticles

@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Link } from "react-router-dom";
+
 
 class LoginForm extends Component {
     state = {
         username: '',
-        password: ''
+        password: '',
+        formDisplay: true,
     }
 
     handleChange = event => {
@@ -36,6 +39,7 @@ class LoginForm extends Component {
                 onChange={this.handleChange}
                 />
                 <input className="input-btn" type="submit" />
+                <p><Link className="register-link" to='/register'>Need to Create an Account?</Link></p>
             </form>
         )
     }

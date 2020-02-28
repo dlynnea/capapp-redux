@@ -1,5 +1,4 @@
 import { getArticlesSuccess, getArticlesError, getArticlesPending } from "../actions/articleActions";
-// import config from "../../config";
 
 export default function (page=1) {
     return dispatch => {
