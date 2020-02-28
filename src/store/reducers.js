@@ -5,7 +5,12 @@ import {
   } from "../actions/articleActions";
 
 const initialState = {
-    articles: null,
+    articles: {
+        items: [],
+        pagination: {
+            total_pages: 0
+        }
+    },
     pending: false
 }
 

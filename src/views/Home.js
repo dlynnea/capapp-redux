@@ -5,7 +5,7 @@ import fetchArticles from "../actions/fetchArticles";
 import {getArticles, getArticlesPending, getArticlesError } from "../store/reducers";
 import {bindActionCreators} from "redux";
 import {Link} from "react-router-dom";
-// import qs from 'query-string';
+import qs from 'query-string';
 import Loader from "../components/Loader";
 // import Nav from "../components/Nav";
 // import LoginForm from "../components/LoginForm";
@@ -14,14 +14,14 @@ import Sidebar from "../sidebar/Sidebar"
 
 class Home extends Component {
 
-    state = {
-        // logged_in: localStorage.getItem('token') ? true : false,
-        // username: '',
-        // displayed_form: '',
-        // page: qs.parse(this.props.location.search).page || 1,
-    }
+    // state = {
+    //     // logged_in: localStorage.getItem('token') ? true : false,
+    //     // username: '',
+    //     // displayed_form: '',
+    //     page: qs.parse(this.props.location.search).page || 1,
+    // }
 
-    componentWillMount() {
+    componentDidMount() {
         this.getArticles()
     }
 
@@ -39,7 +39,7 @@ class Home extends Component {
 
     getArticles = () => {
         const { fetchArticles } = this.props
-        fetchArticles(this.state.page)
+        fetchArticles(1)
     }
 
     // displayForm = form => {
@@ -93,6 +93,8 @@ class Home extends Component {
     //   }
 
     render() {
+        console.log("props", this.props)
+        console.log("articles", this.props.articles)
         // let form;
         // switch (this.state.displayed_form) {
         // case 'login':
@@ -105,7 +107,8 @@ class Home extends Component {
         //     form = null;
         // }
 
-    return <div className='home'>
+    return (
+        <div className='home'>
             {/* <div className='blog-header'>
                 <h1 className='text-center'>
                     <Nav 
@@ -128,7 +131,7 @@ class Home extends Component {
             {!this.props.pending && <div className='blog-body'>
                 <div className='container'>
                     <div className='row no-gutters'>
-                        {this.props.articles && this.props.articles.items.map((article) => (
+                        {this.props.articles.items.map((article) => (
                             <div className='col-lg-4 p-4' key={article.id}>
                                 <ArticleCard article={article}/>
                             </div>
@@ -138,7 +141,7 @@ class Home extends Component {
                 <div className='blog-pagination'>
                     <div className='row'>
                         <div className='col-md-3 mx-auto'>
-                            {
+                            {/* {
                                 this.props.articles
                                 && <div className='d-flex'>
                                     {
@@ -149,14 +152,14 @@ class Home extends Component {
                                         <Link to={`/?page=${parseInt(this.state.page) + 1}`}
                                             className='btn ml-5'>Next</Link>}
                                 </div>
-                            }
+                            } */}
                         </div>
                     </div>
                 </div>
             </div>
             }
         </div>
-    }
+    )}
 }  
 
     const mapStateToProps = (state) => {

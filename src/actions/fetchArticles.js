@@ -2,10 +2,15 @@ import { getArticlesSuccess, getArticlesError, getArticlesPending } from "../act
 
 export default function (page=1) {
     return dispatch => {
-        dispatch(getArticlesSuccess(null))
-        dispatch(getArticlesPending())
-        fetch(`http://localhost:3000/articles?per_page=6&page=${page}`)
-            .then( async (res) => {
+        // dispatch(getArticlesSuccess(null))
+        // dispatch(getArticlesPending())
+        fetch(`http://localhost:3000/articles?per_page=6&page=${page}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`,
+            }
+        })
+            .then(async (res) => {
                 return {
                     items: await res.json(),
                     pagination: {
@@ -14,10 +19,11 @@ export default function (page=1) {
                 }
             })
             .then(res => {
-                if(res.error) {
-                    throw(res.error);
+                if(res.items.message) {
+                    throw(res.items.message);
+                } else {
+                    dispatch(getArticlesSuccess(res))
                 }
-                dispatch(getArticlesSuccess(res))
                 return res
             })
             .catch((error) => {

@@ -102,38 +102,40 @@ handleSignup = (event, data) => {
     }
 
     return (
-        <div className="App">
-          <Header toggleNav={this.toggleNav} logged_in={this.state.logged_in} />
-            <Nav 
+      <div className="App">
+        <Header toggleNav={this.toggleNav} logged_in={this.state.logged_in} />
+          <Nav 
             handleLogout={this.handleLogout}
             handleSignup={this.handleSignup}
             handleLogin={this.handleLogin}
             displayForm={this.displayForm}
             logged_in={this.state.logged_in}
-            />
-            <Route exact path="/login"
+          />
+          <Route exact path="/login"
             render={(props)=>
-            <LoginForm {...props} 
-            onClick={this.hideNav} 
-            toggleLogin={this.toggleLogin} 
-            signUp={this.handleSignup} 
-            logIn={this.handleLogn}/>}
-            />
-          <div className=''>
-            {form}
-            <PrivateRoute exact path='/'
+              <LoginForm {...props} 
+                onClick={this.hideNav} 
+                toggleLogin={this.toggleLogin} 
+                signUp={this.handleSignup} 
+                logIn={this.handleLogn}
+              />
+            }
+          />
+        <div className=''>
+          {form}
+          <PrivateRoute exact path='/'
             hideNav={this.hideNav}
             logged_in={this.logged_in}
             displayed_form={this.displayed_form}
             username={this.username}
             toggleLogin={this.toggleLogin}
             toggleNav={this.toggleNav}
-            />
-              {/* <Route exact path='/' component={Home}/> */}
-              <Route path='/:id/:slug' component={Article}/>
-            </div>
-          <Footer/>
-        </div>
+          />
+            {/* <Route exact path='/' component={Home}/> */}
+            <Route path='/:id/:slug' component={Article}/>
+          </div>
+        <Footer/>
+      </div>
     );
   }
 }
