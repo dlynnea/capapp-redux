@@ -6,10 +6,7 @@ import {
 
 const initialState = {
     articles: {
-        items: [],
-        pagination: {
-            total_pages: 0
-        }
+        items: []
     },
     pending: false
 }

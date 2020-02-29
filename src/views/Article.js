@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import config from "../config";
 import moment from "moment";
 import Loader from "../components/Loader";
 
@@ -51,7 +50,7 @@ class Article extends Component{
             {!this.state.loading && <div className='article'>
                 <div className='blog-header'>
                     <h1 className='text-center'>{this.state.article.title}</h1>
-                    <h5 className='text-center text-uppercase mt-4'>Published on {this.articleDate()} </h5>
+                    <h5 className='text-center text-uppercase mt-4'>Published on {this.articleDate()}</h5>
                 </div>
                 <div className='container'>
                     <div className='article-body'>

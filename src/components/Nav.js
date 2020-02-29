@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function Nav(props) {
     const logged_out_nav = (
-        <nav className="nav">
+        <nav>
             <ul>
                 <li className="login-btn" onClick={() => props.displayForm('login')}>login</li>
                 <li className="signup-btn" onClick={() => props.displayForm('signup')}>signup</li>
@@ -15,16 +15,16 @@ function Nav(props) {
     )
 
     const logged_in_nav = (
-        <nav className="nav">
+        <nav>
             <ul>
                 <li className="logout-btn" onClick={props.handleLogout}>logout</li>
                 {/* <li className="nav-btn"><i class="fa fa-bookmark"></i></li>
                 <li className="nav-btn"><i class="fa fa-glasses"></i></li> */}
-                <li className="logo">cluster <i class="fa fa-pushed"></i></li>
+                <li className="logo">cluster <i className="fa fa-pushed"></i></li>
             </ul>
         </nav>
     )
-    return <div>{props.logged_in ? logged_in_nav : logged_out_nav}</div>
+    return <>{props.logged_in ? logged_in_nav : logged_out_nav}</>
 }
 
 export default Nav;

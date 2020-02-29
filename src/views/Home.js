@@ -7,22 +7,18 @@ import {bindActionCreators} from "redux";
 import {Link} from "react-router-dom";
 import qs from 'query-string';
 import Loader from "../components/Loader";
-// import Nav from "../components/Nav";
-// import LoginForm from "../components/LoginForm";
-// import SignupForm from "../components/SignupForm";
 import Sidebar from "../sidebar/Sidebar"
+import moment from 'moment';
 
 class Home extends Component {
 
-    // state = {
-    //     // logged_in: localStorage.getItem('token') ? true : false,
-    //     // username: '',
-    //     // displayed_form: '',
-    //     page: qs.parse(this.props.location.search).page || 1,
-    // }
+    state = {
+        // page: qs.parse(this.props.location.search).page || 1,
+        today: []
+    }
 
     componentDidMount() {
-        this.getArticles()
+        this.getArticles();
     }
 
     // componentDidUpdate (prevProps) {
@@ -39,87 +35,18 @@ class Home extends Component {
 
     getArticles = () => {
         const { fetchArticles } = this.props
-        fetchArticles(1)
+        fetchArticles(this.state.page)
     }
 
-    // displayForm = form => {
-    //     this.setState({displayed_form: form})
-    //   }
-
-    // handleLogin = (event, data) => {
-    //     event.preventDefault();
-    //     fetch('http://localhost:3000/login', {
-    //         method: 'POST',
-    //         headers: {
-    //         'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-    //     .then(response => response.json())
-    //     .then((result) => {
-    //         localStorage.setItem('token', result.token);
-    //         console.log("json", result)
-    //         this.setState({
-    //         logged_in: true,
-    //         displayed_form: '',
-    //         username: result.username
-    //         })
-    //     })
-    // }
-
-    // handleSignup = (event, data) => {
-    //     event.preventDefault();
-    //     fetch('http://localhost:3000/users', {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify(data)
-    //     })
-    //     .then(response => response.json())
-    //     .then(json => {
-    //       localStorage.setItem('token', json.token);
-    //       this.setState({
-    //         logged_in: true,
-    //         displayed_form: '',
-    //         username: json.username
-    //       })
-    //     })
-    //   }
-
-    //   handleLogout = () => {
-    //     localStorage.removeItem('token');
-    //     this.setState({ logged_in: false, username: '' })
-    //   }
+   todaysDate(){
+        return moment(this.state.today.date).format('MMMM DD, YYYY')
+     }
 
     render() {
-        console.log("props", this.props)
-        console.log("articles", this.props.articles)
-        // let form;
-        // switch (this.state.displayed_form) {
-        // case 'login':
-        //     form = <LoginForm handleLogin={this.handleLogin} />
-        //     break;
-        // case 'signup':
-        //     form = <SignupForm handleSignup={this.handleSignup} />
-        //     break;
-        // default:
-        //     form = null;
-        // }
-
-    return (
-        <div className='home'>
-            {/* <div className='blog-header'>
-                <h1 className='text-center'>
-                    <Nav 
-                    // logged_in={this.state.logged_in}
-                    // displayForm={this.displayForm}
-                    handleLogout={this.handleLogout}
-                    />
-                </h1>
-            </div> */}
+        console.log("wtf")
+    return (<div className='home'>
+            <h5 className='text-center text-uppercase mt-4'>Todays Date: {this.todaysDate()} </h5>
             <Sidebar />
-            {/* {form} */}
             {this.props.pending && <div className='row'>
                 <div className='col-md-2 mx-auto my-5 p-5'>
                     <div className='text-center'>
@@ -131,6 +58,7 @@ class Home extends Component {
             {!this.props.pending && <div className='blog-body'>
                 <div className='container'>
                     <div className='row no-gutters'>
+                        {console.log(this.props.articles)}
                         {this.props.articles.items.map((article) => (
                             <div className='col-lg-4 p-4' key={article.id}>
                                 <ArticleCard article={article}/>
@@ -160,15 +88,16 @@ class Home extends Component {
             }
         </div>
     )}
-}  
+}
 
-    const mapStateToProps = (state) => {
-        return{
-            error: getArticlesError(state),
-            pending: getArticlesPending(state),
-            articles: getArticles(state)
-        }
+const mapStateToProps = (state) => {
+    return{
+      error: getArticlesError(state),
+      pending: getArticlesPending(state),
+      articles: getArticles(state)
+
     }
+  }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     fetchArticles

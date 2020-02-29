@@ -33,12 +33,22 @@ $brown: rgb(97, 92, 92);
   box-sizing: border-box;
 }
 
+
 body {
   background-color: $off-white;
   // background: url('shape.jpg') no-repeat;
   // background-size: cover;
   // background-attachment: fixed;
-  margin-top: 10rem;
+  margin: 0;
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  height: 100%;
 }
 
 input {
@@ -47,11 +57,9 @@ input {
   width: 150px;
 }
 
-nav.nav {
-  // position: relative;
-  // z-index: 1;
+nav {
   width: 100%;
-  margin-top: -120px;
+  // margin-top: -120px;
 }
 
 .register-link p {
@@ -169,29 +177,29 @@ li.logo {
   margin-bottom: 20px;
 }
 
-.blog-header{
+header {
   background: $light-color;
   color: $swan-white;
   padding: 20px 0;
-  height: 320px;
+  height: 120px;
   // padding-top: 80px;
   // padding-bottom: 80px;
-  margin-bottom: 30px;
-  position: fixed;
+  // margin-bottom: 30px;
+  position: block;
   width: 100%;
-  top: 0;
+  // top: 0;
   opacity: 0.9;
   background: url('shape.jpg') no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
-.blog-header h1{
+header h1{
   font-size: 3.1em;
   font-weight: bold;
 }
 
-.blog-body{
+.blog-body {
   margin-top: 100px;
 }
 
@@ -222,11 +230,9 @@ footer {
   padding: 20px;
   color: #fff;
   justify-content: center;
-  // background: url('shape.jpg') no-repeat;
 }
 
 .lds-hourglass {
-  // display: inline-block;
   position: relative;
   width: 64px;
   height: 64px;

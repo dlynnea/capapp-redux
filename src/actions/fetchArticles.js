@@ -3,11 +3,12 @@ import { getArticlesSuccess, getArticlesError, getArticlesPending } from "../act
 export default function (page=1) {
     return dispatch => {
         // dispatch(getArticlesSuccess(null))
-        // dispatch(getArticlesPending())
+        dispatch(getArticlesPending())
+        const token = localStorage.getItem('token')
         fetch(`http://localhost:3000/articles?per_page=6&page=${page}`, {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.token}`,
+                'Authorization': `Bearer ${token}`,
             }
         })
             .then(async (res) => {

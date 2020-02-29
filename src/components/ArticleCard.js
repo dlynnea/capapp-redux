@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 
 const ArticleCard = ({article}) => (
-
     <div className='article-card'>
+        {console.log(article)}
         <Link to={`${article.id}/${article.slug}`}>
             <div className='card-image'>
                 {/* <img alt='' className='img-fluid' src={article.featured_image}/> */}
